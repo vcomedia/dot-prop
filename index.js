@@ -1,9 +1,9 @@
 'use strict';
-const isObj = require('is-obj');
+var isObj = require('is-obj');
 
 function getPathSegments(path) {
-	const pathArr = path.split('.');
-	const parts = [];
+	var pathArr = path.split('.');
+	var parts = [];
 
 	for (let i = 0; i < pathArr.length; i++) {
 		let p = pathArr[i];
@@ -25,7 +25,7 @@ module.exports = {
 			return value === undefined ? obj : value;
 		}
 
-		const pathArr = getPathSegments(path);
+		var pathArr = getPathSegments(path);
 
 		for (let i = 0; i < pathArr.length; i++) {
 			if (!Object.prototype.propertyIsEnumerable.call(obj, pathArr[i])) {
@@ -56,11 +56,11 @@ module.exports = {
 			return obj;
 		}
 
-		const root = obj;
-		const pathArr = getPathSegments(path);
+		var root = obj;
+		var pathArr = getPathSegments(path);
 
 		for (let i = 0; i < pathArr.length; i++) {
-			const p = pathArr[i];
+			var p = pathArr[i];
 
 			if (!isObj(obj[p])) {
 				obj[p] = {};
@@ -81,10 +81,10 @@ module.exports = {
 			return;
 		}
 
-		const pathArr = getPathSegments(path);
+		var pathArr = getPathSegments(path);
 
 		for (let i = 0; i < pathArr.length; i++) {
-			const p = pathArr[i];
+			var p = pathArr[i];
 
 			if (i === pathArr.length - 1) {
 				delete obj[p];
@@ -104,7 +104,7 @@ module.exports = {
 			return false;
 		}
 
-		const pathArr = getPathSegments(path);
+		var pathArr = getPathSegments(path);
 
 		for (let i = 0; i < pathArr.length; i++) {
 			if (isObj(obj)) {
